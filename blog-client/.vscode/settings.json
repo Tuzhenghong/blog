@@ -1,0 +1,50 @@
+{
+  "editor.defaultFormatter": "SimonSiefke.prettier-vscode",
+  // 缩进字符 2
+  "editor.tabSize": 2,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "java.semanticHighlighting.enabled": true,
+  "window.zoomLevel": 0,
+  //  #去掉代码结尾的分号
+  "prettier.semi": true,
+  // 让prettier使用eslint的代码格式进行校验
+  "prettier.eslintIntegration": true,
+  // 使用单引号替代双引号
+  "prettier.singleQuote": true,
+  // 函数名和后面的括号之间加个空格
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  // 每次保存自动格式化
+  "editor.formatOnSave": true,
+  // eslint格式化字符串
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    // "eslint.autoFixOnSave": false,
+    "source.fixAll.tslint": false
+  },
+  "eslint.codeAction.disableRuleComment": {},
+  "editor.fontLigatures": false,
+  "explorer.confirmDelete": false,
+  "java.configuration.checkProjectSettingsExclusions": false,
+  // tslint配置
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.rulers": [],
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

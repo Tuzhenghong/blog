@@ -1,0 +1,32 @@
+.el-dropdown {
+  .el-dropdown-link {
+    font-size: 16px !important;
+    cursor: pointer;
+  }
+}
+
+.el-menu {
+  border-right: none;
+
+  .el-menu-item {
+    display: flex;
+    align-items: center;
+    span {
+      margin-left: 8px;
+    }
+  }
+
+  .el-menu-item.is-active {
+    background-color: #ecf5ff;
+  }
+}
+
+.el-breadcrumb {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.el-table::before {
+  display: none;
+}
