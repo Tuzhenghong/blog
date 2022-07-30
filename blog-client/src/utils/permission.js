@@ -47,54 +47,13 @@ function operatorMenu(to, next) {
 
 //解析路由
 function analysisJson(data) {
-  let treeMap = []
-  data.forEach(item => {
-    const hasChild = item.children && item.children.length > 0
-    let json = {
-      path: item.crmnuIndexKey,
-      component: 'Layout',
-      hidden: true,
-      name: item.crmnuUitag,
-      meta: {
-        title: item.crmnuName,
-        icon: item.crmnuPicUrl
-      },
-      children: hasChild ? item.children.map(i => analysisJsonRounter(i, item)) : []
-    }
-    treeMap.push(json)
-  })
-  return treeMap
+  console.log(data)
+  analysisJsonRounter()
 }
 
 //解析菜单路由子组件
 function analysisJsonRounter(item, val) {
-  let componentName = ''
-  if (item.children && item.children.length) {
-    componentName = 'Other'
-  } else {
-    componentName = item.crmnuUrl ? item.crmnuUrl : `/${item.crmnuPicUrl}`
-  }
-  return {
-    path: item.crmnuIndexKey,
-    component: componentName,
-    name: item.crmnuUitip,
-    hidden: true,
-    meta: {
-      title: item.crmnuName,
-      icon: '',
-      bread: [
-        {
-          title: val.crmnuName,
-          path: val.crmnuIndexKey
-        },
-        {
-          title: item.crmnuName,
-          path: item.crmnuIndexKey
-        }
-      ]
-    },
-    children: item.children ? item.children.map(items => analysisJsonRounter(items, item)) : []
-  }
+  console.log(item, val)
 }
 
 function routerGo(to, next) {

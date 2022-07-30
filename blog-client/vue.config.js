@@ -3,8 +3,8 @@
  * @version: V1.0
  * @Author: 涂正弘
  * @Date: 2022-07-07 15:23:44
- * @LastEditors: 涂正弘
- * @LastEditTime: 2022-07-19 10:39:48
+ * @LastEditors: tuzh
+ * @LastEditTime: 2022-07-30 16:49:03
  */
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path')
@@ -22,6 +22,7 @@ module.exports = defineConfig({
   productionSourceMap: false, // 去除正式环境的map文件
   devServer: {
     open: false,
+    port: process.env.VUE_APP_BASE_PORT,
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
         target: process.env.VUE_APP_API_HOST, // 本地环境

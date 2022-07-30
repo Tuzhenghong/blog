@@ -3,8 +3,8 @@
  * @version: V1.0
  * @Author: 涂正弘
  * @Date: 2022-07-07 15:30:41
- * @LastEditors: 涂正弘
- * @LastEditTime: 2022-07-22 11:19:30
+ * @LastEditors: tuzh
+ * @LastEditTime: 2022-07-30 18:03:41
 -->
 <template>
   <div>
@@ -151,6 +151,10 @@ export default {
     // 查看详情
     handleView(row) {
       console.log(row, 'view')
+      let suerId = JSON.parse(window.localStorage.getItem('admin')).userId
+      this.$api.getUserInfo({ userId: suerId }).then(res => {
+        console.log(res, 'suerInfo')
+      })
     },
     // 编辑
     handleEdit(row) {

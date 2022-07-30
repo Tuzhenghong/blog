@@ -3,10 +3,11 @@
  * @version: V1.0
  * @Author: 涂正弘
  * @Date: 2022-06-21 19:37:42
- * @LastEditors: 涂正弘
- * @LastEditTime: 2022-07-13 16:30:23
+ * @LastEditors: tuzh
+ * @LastEditTime: 2022-07-30 18:02:34
  */
 import axios from 'axios'
+import store from '@/store'
 import Qs from 'qs'
 
 import { Message, Loading } from 'element-ui'
@@ -49,6 +50,8 @@ const hideLoading = () => {
 // 请求拦截
 service.interceptors.request.use(
   config => {
+    const token = store.state.user.userInfo.token
+    token && (config.headers.Authorization = 'Bearer ' + token)
     // 如果当前请求需要loading，则调用showLoading方法
     if (config.isShowLoading) {
       showLoading(config.loadingText)
@@ -90,13 +93,17 @@ service.interceptors.response.use(
     }
     return response.data
   },
-  error => {
-    console.log(error, 'error')
+  err => {
+    console.log(err, 'err')
     // 请求结束后，调用hideLoading方法
-    if (error.config.isShowLoading) {
+    if (err.config.isShowLoading) {
       hideLoading()
     }
-    return Promise.reject(error)
+    if (err.response.status == 401) {
+      // window.localStorage.clear()
+      // router.push('/login')
+    }
+    return Promise.reject(err)
   }
 )
 
